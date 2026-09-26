@@ -1,237 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>BHOC Transplant | Organ Transplantation &amp; Oxygen Continuity</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23232847%22%2F%3E%3Cpath%20d%3D%22M19%2030a13%2013%200%200%201%2026-3M45%2034a13%2013%200%200%201-26%203%22%20fill%3D%22none%22%20stroke%3D%22%2375d2dc%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%224%22%20fill%3D%22%23ae547f%22%2F%3E%3C%2Fsvg%3E">
-  <meta name="description" content="BHOC Transplant research concept: oxygen continuity across organ procurement, cooling, preparation, rewarming, transplantation and recovery.">
-  <style>
-    :root { --paper:#f2efe7; --paper2:#e9e5d9; --ink:#183332; --muted:#5d706c; --line:#b5bbb0; --sage:#7d9788; --copper:#ba785d; --oxygen:#8bc4b6; --white:#fbfaf6; --shadow:0 28px 65px rgba(18,42,41,.13); }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial,Helvetica,sans-serif; line-height:1.55; }
-    a { color:inherit; text-decoration-thickness:1px; text-underline-offset:3px; }
-    button { font:inherit; }
-    .serif { font-family:Georgia,'Times New Roman',serif; font-weight:normal; }
-    .eyebrow { color:var(--copper); font:700 11px/1.3 Arial,sans-serif; letter-spacing:.19em; text-transform:uppercase; }
-    .wrap { width:min(1230px,calc(100% - 72px)); margin:auto; }
-    .top { background:var(--ink); color:var(--paper); }
-    .topline { display:flex; align-items:center; gap:22px; justify-content:space-between; padding:20px 0; border-bottom:1px solid rgba(242,239,231,.24); }
-    .brand { display:flex; align-items:center; gap:14px; text-decoration:none; flex:none; }
-    .brand-mark { font:bold 24px/1 Arial,sans-serif; letter-spacing:.03em; }
-    .brand-mark i { font-style:normal; color:var(--copper); }
-    .brand-sub { border-left:1px solid #668078; padding-left:14px; color:#c4d0c8; font:700 10px/1.35 Arial,sans-serif; letter-spacing:.22em; text-transform:uppercase; }
-    .topnav { display:flex; gap:25px; font-size:12px; letter-spacing:.03em; }
-    .topnav a { text-decoration:none; color:#d5ddd5; }
-    .topnav a:hover { color:var(--oxygen); }
-    .status { color:#cbd7cd; font:700 10px/1.35 Arial,sans-serif; letter-spacing:.15em; text-transform:uppercase; border:1px solid #687d77; padding:9px 11px; white-space:nowrap; }
-    .mast { display:flex; gap:20px; align-items:center; padding:13px 0; color:#d1ded4; font-size:11px; letter-spacing:.03em; }
-    .mast span:first-child { color:var(--oxygen); font-weight:bold; text-transform:uppercase; letter-spacing:.14em; }
-    .mast b { color:#5f7772; }
-    .hero { position:relative; overflow:hidden; padding:84px 0 96px; background:radial-gradient(ellipse at 88% 45%,#e3e6dc 0%,var(--paper) 48%,#f5f1e9 100%); }
-    .hero::after { content:''; position:absolute; inset:0; pointer-events:none; opacity:.33; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 170 170' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)' opacity='.075'/%3E%3C/svg%3E"); }
-    .hero-grid { position:relative; z-index:1; }
-    .hero h1 { max-width:690px; margin:25px 0; font-size:clamp(48px,5vw,78px); letter-spacing:-.055em; line-height:1.02; }
-    .hero h1 em { color:#7e9a8d; font-weight:normal; }
-    .lede { max-width:560px; font-size:18px; line-height:1.64; color:#465d59; }
-    .hero-actions { display:flex; align-items:center; gap:22px; margin-top:33px; flex-wrap:wrap; }
-    .button { display:inline-block; background:var(--ink); color:var(--white); padding:13px 18px; text-decoration:none; font-size:12px; font-weight:bold; letter-spacing:.035em; border:1px solid var(--ink); }
-    .button:hover { background:#31534b; }
-    .textlink { font-size:12px; font-weight:bold; }
-    .micro { margin-top:34px; max-width:525px; font-size:11px; color:#70807a; }
-    .hero-copy { max-width:970px; }
-    .hero-art { width:100%; margin:34px 0 0; }
-    .hero-art img { display:block; width:100%; height:auto; max-height:490px; object-fit:contain; }
-    .hero-art figcaption { color:#60786d; font:11px/1.5 Arial,sans-serif; letter-spacing:.04em; margin:5px 0 0; }
-    .journey-bar { border-top:1px solid #bdc3d8; padding-top:24px; margin-top:16px; }
-    .journey-vision { display:flex; justify-content:space-between; align-items:end; gap:24px; }
-    .journey-vision h2 { margin:0; color:var(--ink); font:normal clamp(29px,3.1vw,43px)/1.1 Georgia,serif; letter-spacing:-.035em; }
-    .journey-vision h2 em { color:var(--copper); font-weight:normal; }
-    .journey-vision p { max-width:395px; margin:0; color:#59627f; font-size:15px; }
-    .stage-nav { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:9px; margin-top:22px; }
-    .stage-nav a { position:relative; min-height:89px; padding:14px 30px 15px 15px; display:flex; flex-direction:column; justify-content:space-between; gap:9px; background:#fffefa; border:1px solid #c7cce0; text-decoration:none; transition:transform .2s ease,background-color .2s ease,border-color .2s ease; }
-    .stage-nav a small { color:#a5527d; font:700 12px/1 Arial,sans-serif; letter-spacing:.12em; }
-    .stage-nav a strong { color:#303963; font:700 14px/1.22 Arial,sans-serif; }
-    .stage-nav a::after { content:'↗'; position:absolute; right:13px; bottom:13px; color:#a5527d; font-size:17px; }
-    .stage-nav a:hover,.stage-nav a:focus-visible { background:#edf0fa; border-color:#6877ae; transform:translateY(-2px); }
-    .stage-nav a:focus-visible { outline:2px solid #a5527d; outline-offset:2px; }
-    .phase { scroll-margin-top:24px; }
-    .phase:target { border-color:#a5527d; box-shadow:0 0 0 2px #a5527d,0 12px 27px rgba(36,40,79,.12); }
-    .section { padding:95px 0; }
-    .section.alt { background:var(--paper2); }
-    .section.dark { background:var(--ink); color:var(--paper); }
-    .section-head { display:flex; align-items:end; justify-content:space-between; gap:25px; margin-bottom:36px; }
-    .section h2 { font-size:clamp(37px,4vw,59px); letter-spacing:-.045em; line-height:1.08; margin:13px 0 0; }
-    .section-intro { max-width:520px; color:#5f736d; margin:0; font-size:15px; }
-    .dark .section-intro { color:#b5c9bf; }
-    .principle { padding:78px 0 84px; background:var(--copper); color:#fff8ed; }
-    .principle p { margin:0; max-width:1080px; font:normal clamp(27px,3.5vw,50px)/1.25 Georgia,serif; letter-spacing:-.025em; }
-    .principle .minor { margin-top:22px; opacity:.82; font-size:13px; letter-spacing:.04em; }
-    .system { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    .system article { min-height:260px; background:#f7f5ef; border:1px solid #cad0c4; padding:26px; position:relative; }
-    .system article::before { content:attr(data-index); position:absolute; top:20px; right:25px; font:normal 45px/1 Georgia,serif; color:#cad6cd; }
-    .system h3 { font:normal 28px/1.2 Georgia,serif; margin:59px 0 12px; }
-    .system p { color:#5a6f68; font-size:13px; max-width:295px; }
-    .system small { display:block; color:#ad7056; font-size:10px; font-weight:bold; letter-spacing:.13em; text-transform:uppercase; }
-    .equation { margin:22px 0 0; border-top:1px solid #c2cabd; padding-top:18px; color:#60746c; font-size:13px; }
-    .equation strong { color:var(--ink); }
-    .entry-map { display:grid; grid-template-columns:1.15fr .85fr; gap:14px; margin:0 0 20px; }
-    .entry-map article { border:1px solid #b9c8bd; background:#e6ede5; padding:22px 25px; }
-    .entry-map article.recipient { background:#f4eadd; border-color:#d2bbaa; }
-    .entry-map h3 { font:normal 25px/1.2 Georgia,serif; margin:8px 0; }
-    .entry-map p { margin:0 0 11px; font-size:14px; color:#526b60; }
-    .entry-map .recipient p { color:#786458; }
-    .source-types { display:flex; gap:6px; flex-wrap:wrap; }
-    .source-types span { border:1px solid #9eb5a6; padding:5px 8px; font-size:12px; color:#385b4d; background:#f5f7f0; }
-    .entry-map .recipient .source-types span { border-color:#d4b9a5; color:#77553f; background:#fbf5e9; }
-    .path-caption { color:#566c62; font-size:13px; margin:0 0 23px; }
-    .continuum { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-    .phase { border:1px solid #c7cec1; background:#f8f6f0; padding:22px; min-height:325px; display:flex; flex-direction:column; }
-    .phase b { display:block; color:var(--copper); font-size:12px; letter-spacing:.13em; }
-    .phase h3 { font:normal 27px/1.14 Georgia,serif; margin:22px 0 11px; }
-    .phase > p { color:#536b61; font-size:14px; margin:0 0 18px; }
-    .phase-controls { display:flex; gap:8px; margin-top:auto; padding-top:16px; border-top:1px solid #c7d0c4; }
-    .phase-controls button { flex:1; min-height:43px; border:1px solid #648a79; background:transparent; color:#24483d; font-size:13px; font-weight:bold; cursor:pointer; }
-    .phase-controls button:hover,.phase-controls button:focus-visible,.phase-controls button[aria-expanded="true"] { color:#fff; background:#275349; }
-    .phase-controls button:focus-visible { outline:2px solid var(--copper); outline-offset:2px; }
-    .phase-panel { margin-top:13px; border-left:3px solid var(--copper); background:#e9eee7; padding:14px 15px; color:#3f5c51; font-size:13px; }
-    .phase-panel[hidden] { display:none; }
-    .phase-panel strong { display:block; color:#234a3f; margin-bottom:5px; }
-    .phase-panel p { font-size:13px; margin:0 0 8px; }
-    .phase-panel p:last-child { margin-bottom:0; }
-    .phase-panel a { font-weight:bold; }
-    .phase-panel .source-status { font-size:11px; font-weight:bold; text-transform:uppercase; letter-spacing:.07em; color:#8a5a44; }
-    .time-hypothesis { border-left:3px solid var(--copper); margin-top:27px; padding:4px 0 4px 22px; max-width:990px; color:#526b61; font-size:13px; }
-    .time-hypothesis strong { color:var(--ink); }
-    .demand-layout { display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:center; }
-    .diagram { min-height:490px; border:1px solid #789189; background:#23413c; padding:30px; position:relative; overflow:hidden; box-shadow:var(--shadow); }
-    .diagram::before { content:''; position:absolute; inset:0; opacity:.13; background:repeating-linear-gradient(0deg,transparent 0 34px,#acc3b5 35px 36px),repeating-linear-gradient(90deg,transparent 0 34px,#acc3b5 35px 36px); }
-    .diagram svg { position:relative; z-index:1; width:100%; height:auto; }
-    .diagram-top { position:relative; z-index:2; color:#accabe; font-size:10px; letter-spacing:.18em; text-transform:uppercase; }
-    .switches { display:flex; gap:8px; flex-wrap:wrap; margin:23px 0; }
-    .switches button { border:1px solid #729489; color:#d2e6da; background:transparent; padding:10px 12px; cursor:pointer; font-size:11px; }
-    .switches button[aria-pressed="true"] { color:#15332f; background:#9dcabb; border-color:#9dcabb; font-weight:bold; }
-    .diagram-caption { position:relative; z-index:2; color:#d6e9dd; font:normal 23px/1.2 Georgia,serif; margin:15px 0 5px; }
-    .diagram-note { position:relative; z-index:2; color:#a8c2b5; font-size:11px; margin:0; }
-    .diagram .oxygen-dot { transition:opacity .3s ease,transform .4s ease; transform-origin:center; }
-    .demand-layout ol { list-style:none; margin:0; padding:0; border-top:1px solid #a6baae; }
-    .demand-layout li { display:grid; grid-template-columns:90px 1fr; gap:14px; padding:23px 0; border-bottom:1px solid #a6baae; }
-    .demand-layout li span { color:#a9c9b6; font:700 10px/1.3 Arial,sans-serif; letter-spacing:.17em; }
-    .demand-layout li strong { display:block; color:#f4f1e7; font:normal 22px/1.2 Georgia,serif; margin-bottom:7px; }
-    .demand-layout li p { color:#b7cbc0; margin:0; font-size:12px; }
-    .program { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
-    .program article { border-top:2px solid var(--sage); padding-top:21px; }
-    .program b { color:var(--copper); letter-spacing:.16em; font-size:11px; }
-    .program h3 { font:normal 25px/1.15 Georgia,serif; margin:13px 0; }
-    .program p { font-size:13px; color:#64766e; }
-    .callout { margin-top:38px; padding:24px 28px; border:1px solid #bec8bb; background:#f6f3eb; color:#586d65; font-size:13px; }
-    .callout strong { color:var(--ink); }
-    .reference-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-    .ref { border:1px solid #c2cabc; background:#f8f6ef; padding:24px; min-height:221px; }
-    .ref .category { font:700 10px/1.3 Arial,sans-serif; letter-spacing:.15em; text-transform:uppercase; color:var(--copper); }
-    .ref h3 { font:normal 26px/1.2 Georgia,serif; margin:18px 0 9px; }
-    .ref p { font-size:12px; color:#60746c; margin:0 0 14px; }
-    .ref a { font-size:11px; font-weight:bold; }
-    .matrix { margin-top:42px; width:100%; border-collapse:collapse; background:#f8f6ef; font-size:12px; }
-    .matrix th,.matrix td { border-bottom:1px solid #c7d0c3; padding:12px 14px; text-align:left; vertical-align:top; }
-    .matrix th { background:#dce4d9; color:#3d6254; font-size:10px; letter-spacing:.14em; text-transform:uppercase; }
-    .matrix td:first-child { font-weight:bold; }
-    .matrix tr:last-child td { border-bottom:0; }
-    .evidence-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:15px; }
-    .evidence { border:1px solid #748d83; padding:24px; min-height:206px; }
-    .evidence b { color:#a7c9b8; font-size:10px; letter-spacing:.15em; text-transform:uppercase; }
-    .evidence h3 { font:normal 24px/1.2 Georgia,serif; margin:14px 0 9px; }
-    .evidence p { color:#c1d0c4; font-size:12px; }
-    .evidence a { color:#b2d4c4; font-size:11px; }
-    .claim-boundary { margin-top:30px; background:#2c4942; padding:28px; color:#dae6d8; }
-    .claim-boundary h3 { margin:0 0 10px; font:normal 26px/1.2 Georgia,serif; }
-    .claim-boundary p { font-size:13px; margin:10px 0; max-width:970px; }
-    .claim-boundary strong { color:#f3e5d1; }
-    footer { padding:45px 0; background:#102926; color:#b9ccc0; font-size:12px; }
-    .footer-grid { display:flex; justify-content:space-between; gap:30px; }
-    footer a { color:#d3e9d7; }
-    .source-note { font-size:11px; color:#65796f; margin-top:18px; }
-    /* A distinct midnight-indigo and mineral-cyan identity around the original drawing. */
-    :root { --paper:#f5f3f9; --paper2:#e9eaf3; --ink:#232847; --muted:#596282; --line:#b8bfd2; --sage:#6785b6; --copper:#ae547f; --oxygen:#75d2dc; --white:#fffdf8; --shadow:0 28px 65px rgba(28,29,70,.18); }
-    .top { background:linear-gradient(115deg,#1f2440,#32305e); border-bottom:3px solid #75d2dc; }
-    .topline { border-bottom-color:rgba(255,255,255,.2); }
-    .brand-mark i { color:#e5a2bc; }
-    .brand-sub { border-left-color:#8d96c0; color:#ecdcf0; }
-    .topnav a { color:#e7e8f6; }
-    .status { border-color:#9299c1; color:#e6eafa; }
-    .mast { color:#dce2f6; }
-    .mast span:first-child { color:#8ce1e8; }
-    .mast b { color:#c37c9a; }
-    .hero { padding:0 0 48px; background:var(--paper); }
-    .hero::after { display:none; }
-    .hero-art { margin:0; background:#f5eedf; border-bottom:4px solid #a55a81; }
-    .hero-art img { max-width:1700px; max-height:none; margin:auto; }
-    .hero-art figcaption { max-width:1700px; margin:0 auto; padding:9px 18px 11px; color:#5f5871; background:#f5eedf; }
-    .hero-grid { padding:59px 0 32px; }
-    .hero h1 { max-width:960px; }
-    .hero h1 em { color:#6972ae; }
-    .lede { max-width:830px; color:#434c6b; }
-    .micro { max-width:840px; color:#606a83; }
-    .button:hover { background:#485896; }
-    .section-intro { color:#5b6383; }
-    .dark .section-intro { color:#c9d2ee; }
-    .principle { background:linear-gradient(120deg,#303769 0%,#60487b 60%,#994f77 100%); color:#fffaf6; }
-    .system article,.ref,.phase { background:#fffefa; border-color:#c7cce0; }
-    .system article::before { color:#d8d9e9; }
-    .system p,.program p,.ref p,.equation,.callout,.path-caption,.time-hypothesis { color:#59627f; }
-    .system small { color:#a5527d; }
-    .equation { border-top-color:#c9cde0; }
-    .entry-map article { background:#e4ebf6; border-color:#b4c4df; }
-    .entry-map article.recipient { background:#f4e9ee; border-color:#d8b9cb; }
-    .entry-map p,.entry-map .recipient p { color:#4d5c7c; }
-    .source-types span { color:#344c78; background:#f8faff; border-color:#a9bcdc; }
-    .entry-map .recipient .source-types span { color:#793f6c; background:#fff7fa; border-color:#d8aec7; }
-    .phase > p { color:#535d78; }
-    .phase-controls { border-top-color:#c9cde1; }
-    .phase-controls button { border-color:#6677ad; color:#35477c; }
-    .phase-controls button:hover,.phase-controls button:focus-visible,.phase-controls button[aria-expanded="true"] { background:#394c8b; color:white; }
-    .phase-panel { background:#edf0f9; color:#485470; }
-    .phase-panel strong { color:#293a72; }
-    .phase-panel .source-status { color:#985478; }
-    .diagram { background:#292f5b; border-color:#7c92c4; }
-    .diagram::before { background:repeating-linear-gradient(0deg,transparent 0 34px,#a2b6dc 35px 36px),repeating-linear-gradient(90deg,transparent 0 34px,#a2b6dc 35px 36px); }
-    .switches button { border-color:#91a9d0; color:#e5ebff; }
-    .switches button[aria-pressed="true"] { color:#1e2d51; background:#87d9e0; border-color:#87d9e0; }
-    .demand-layout li { border-bottom-color:#919bc0; }
-    .demand-layout ol { border-top-color:#919bc0; }
-    .demand-layout li p,.diagram-note { color:#c6d4ed; }
-    .diagram-caption,.demand-layout li strong { color:#fffdf7; }
-    .callout { background:#f7f6fc; border-color:#c6cbe0; }
-    .matrix { background:#fffefa; }
-    .matrix th { background:#d9e3f5; color:#324b80; }
-    .matrix td,.matrix th { border-bottom-color:#c8d0e3; }
-    .evidence { border-color:#8b9dc8; }
-    .evidence b,.evidence a { color:#a3e2e8; }
-    .evidence p { color:#d2d8e9; }
-    .claim-boundary { background:#343c69; color:#e9ecf8; }
-    .claim-boundary strong { color:#f6c6d8; }
-    footer { background:#191d37; color:#d4d8e9; }
-    footer a { color:#a9e6eb; }
-    .source-note { color:#68718e; }
-    @media(max-width:950px) { .topnav { display:none; } .demand-layout,.entry-map { grid-template-columns:1fr; } .reference-grid,.continuum { grid-template-columns:repeat(2,1fr); } .stage-nav { grid-template-columns:repeat(3,minmax(0,1fr)); } }
-    @media(max-width:630px) { .wrap { width:calc(100% - 36px); } .brand-sub { font-size:8px; } .status { font-size:8px; } .hero h1 { font-size:48px; } .hero-grid { padding:42px 0 26px; } .hero-art figcaption { padding:8px 18px; } .journey-vision { display:block; } .journey-vision p { margin-top:11px; } .stage-nav { grid-template-columns:repeat(2,minmax(0,1fr)); } .section { padding:64px 0; } .section-head { display:block; } .section-intro { margin-top:20px; } .system,.program,.reference-grid,.evidence-grid,.continuum { grid-template-columns:1fr; } .demand-layout li { grid-template-columns:65px 1fr; } .matrix-wrap { overflow-x:auto; } .matrix { min-width:650px; } .footer-grid { display:block; } }
-    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>BHOC Transplant | Oxygen Continuity</title>
+<meta name="description" content="BHOC Transplant research concept from donor care through organ preparation, transplantation and recovery.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23232847%22%2F%3E%3Cpath%20d%3D%22M19%2030a13%2013%200%200%201%2026-3M45%2034a13%2013%200%200%201-26%203%22%20fill%3D%22none%22%20stroke%3D%22%2375d2dc%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%224%22%20fill%3D%22%23ae547f%22%2F%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <div class="top">
-    <header class="wrap topline">
-      <a class="brand" href="#idea" aria-label="BHOC Transplant"><span class="brand-mark">BH<i>O</i>C</span><span class="brand-sub">Transplant</span></a>
-      <nav class="topnav" aria-label="Sections"><a href="#idea">The idea</a><a href="#model">Molecule</a><a href="#continuum">Continuum</a><a href="#program">Research</a><a href="#evidence">Evidence</a></nav>
-      <span class="status">Research concept · 2026</span>
-    </header>
-    <div class="wrap mast"><span>BHOCtransplant.com · proposed domain</span><b>↗</b><span>Organ transplantation &amp; oxygen continuity</span></div>
-  </div>
-
-  <main>
-    <section class="hero" id="idea">
+<div class="top"><header class="wrap topline"><a class="brand" href="index.html" aria-label="BHOC Transplant home"><span class="brand-mark">BH<i>O</i>C</span><span class="brand-sub">Transplant</span></a><nav class="topnav" aria-label="Sections"><a href="index.html" aria-current="page">Home</a><a href="journey.html">Journey</a><a href="science.html">Science</a><a href="evidence.html">Evidence</a><a href="news.html">News</a><a href="partners.html">Partners</a></nav><span class="status">Research concept · 2026</span></header><div class="wrap mast"><span>BHOCtransplant.com · proposed domain</span><span class="context">Organ transplantation &amp; oxygen continuity</span></div></div>
+<main>
+<section class="hero" id="idea">
         <figure class="hero-art">
           <img src="assets/transplant-journey.jpg" width="2172" height="724" loading="eager" fetchpriority="high" alt="Combined unfinished pencil and watercolor study: human donor and recipient silhouettes, separate pig and DNA research path, heart, lungs, liver and kidney around an organ preparation chamber, and a conceptual engineered graft">
           <figcaption>Illustrative research pathways. Human donation, xenotransplantation and bioengineered grafts follow different protocols; the image does not show a proven BHOC treatment.</figcaption>
@@ -241,7 +22,7 @@
           <div class="eyebrow">Before · through · after transplantation</div>
           <h1 class="serif">Oxygen continuity. <em>Across every transition.</em></h1>
           <p class="lede">The cell, the organ and the organism each change their oxygen demand. BHOC Transplant asks whether a characterized oxygen carrier, with molecularly responsive oxygen release, can help sustain function from donor care through cooling, warming, transport, implantation and recovery.</p>
-          <div class="hero-actions"><a class="button" href="#journey">Follow the transplant journey &nbsp;↗</a><a class="textlink" href="#model">Explore the molecule →</a></div>
+          <div class="hero-actions"><a class="button" href="journey.html">Follow the transplant journey &nbsp;↗</a><a class="textlink" href="science.html">Explore the molecule →</a></div>
           <p class="micro">Research concept across separate donor, ex-vivo and recipient protocols. A P50 near 40 mmHg at 37°C is described for historical HBOC-201; product-specific BHOC behavior, transplant outcomes and time gained remain to be established.</p>
         </div>
 
@@ -252,166 +33,16 @@
           <p>Metabolic control and support, from the cell to the recipient: a research goal to test at every stage.</p>
         </div>
         <nav class="stage-nav" aria-label="Explore the transplant stages">
-          <a href="#stage-donor"><small>01 / 06</small><strong>Donor</strong></a>
-          <a href="#stage-cooling"><small>02 / 06</small><strong>Cooling</strong></a>
-          <a href="#stage-centre"><small>03 / 06</small><strong>Organ centre</strong></a>
-          <a href="#stage-rewarming"><small>04 / 06</small><strong>Rewarming</strong></a>
-          <a href="#stage-transplant"><small>05 / 06</small><strong>Transplantation</strong></a>
-          <a href="#stage-recovery"><small>06 / 06</small><strong>Recovery</strong></a>
+          <a href="journey.html#stage-donor"><small>01 / 06</small><strong>Donor</strong></a>
+          <a href="journey.html#stage-cooling"><small>02 / 06</small><strong>Cooling</strong></a>
+          <a href="journey.html#stage-centre"><small>03 / 06</small><strong>Organ centre</strong></a>
+          <a href="journey.html#stage-rewarming"><small>04 / 06</small><strong>Rewarming</strong></a>
+          <a href="journey.html#stage-transplant"><small>05 / 06</small><strong>Transplantation</strong></a>
+          <a href="journey.html#stage-recovery"><small>06 / 06</small><strong>Recovery</strong></a>
         </nav>
       </div>
-    </section>
-
-    <section class="principle"><div class="wrap"><p>Stop thinking only about blood. Think about <em>life, function and useful time.</em></p><div class="minor">Molecular oxygen release → organ-level support → a separate path to recipient healing. Each transition needs its own evidence.</div></div></section>
-
-    <section class="section" id="model"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">01 / The molecular idea</div><h2 class="serif">The molecule responds.</h2></div><p class="section-intro">Hemoglobin binds oxygen reversibly and releases it as local oxygen pressure falls. This inherent molecular behavior is central to the BHOC Transplant research concept; the device and clinical protocol determine how much carrier reaches the tissue.</p></div>
-      <div class="system">
-        <article data-index="1"><small>Intrinsic molecular response</small><h3>Oxygen affinity</h3><p>Reversible binding and the local pO₂ gradient govern release. Historical HBOC-201 is reported near P50 40 mmHg at 37°C; BHOC-specific characterization is required.</p></article>
-        <article data-index="2"><small>Cold-to-warm transition</small><h3>Temperature range</h3><p>Test carrier function during cooling, cold support and gradual rewarming. P50 and release change with temperature, pH and formulation; P50 ≈ 40 is not a constant from 4 to 37°C.</p></article>
-        <article data-index="3"><small>Tissue-level response</small><h3>Measured function</h3><p>Match carrier concentration and perfusion conditions to each stage. Measure extraction, ATP, lactate, vascular resistance and organ-specific function against controls.</p></article>
-      </div>
-      <div class="equation"><strong>Two kinds of regulation:</strong> molecular affinity gives a built-in response to local pO₂; clinicians or perfusion devices set dose, flow and gas input. The exact amount an organ needs, and whether BHOC can supply it safely, must be measured. Delivered O₂ depends on flow × arterial O₂ content.</div>
-    </div></section>
-
-    <section class="section alt" id="continuum"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">02 / One functional continuum</div><h2 class="serif">Time can become useful.</h2></div><p class="section-intro">One research vision across donor, graft and recipient, with separate permissions and measurable questions at each stage. Evidence and our proposed concept open beneath every stage.</p></div>
-
-      <div class="entry-map" aria-label="Two sides of the transplant journey">
-        <article>
-          <div class="eyebrow">The graft / multiple source pathways</div>
-          <h3>Where the organ enters</h3>
-          <p>Kidney, liver, heart, lung and other organs need their own perfusion and function tests. The source changes the protocol.</p>
-          <div class="source-types"><span>Authorized human donor</span><span>Gene-edited porcine donor · xenotransplant research</span><span>Bioengineered graft · future concept</span></div>
-        </article>
-        <article class="recipient">
-          <div class="eyebrow">The person / a separate path</div>
-          <h3>Where the patient enters</h3>
-          <p>A person with organ failure may be in hospital or, for some kidney candidates, on dialysis. Assessment, matching and recipient care run in parallel with preparation of the graft.</p>
-          <div class="source-types"><span>Illness &amp; evaluation</span><span>Waiting &amp; preparation</span><span>Implantation &amp; recovery</span></div>
-        </article>
-      </div>
-      <p class="path-caption">For xenografts, donor-animal gene editing occurs before organ retrieval. Possible gene delivery to an isolated organ inside the preparation centre is a separate experimental question. BHOC has not been shown to modify genes or reduce rejection.</p>
-
-      <div class="continuum">
-        <article class="phase" id="stage-donor">
-          <b>01 / BEFORE PROCUREMENT</b><h3>Donor care &amp; decision</h3>
-          <p>Consider whether oxygen-support research could contribute before retrieval while clinical care, authorization and death determination remain independent.</p>
-          <div class="phase-controls"><button type="button" data-panel-target="evidence-01" aria-controls="evidence-01" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-01" aria-controls="concept-01" aria-expanded="false">Concept</button></div>
-          <div class="phase-panel" id="evidence-01" hidden><strong>Evidence status</strong><p>The current BHOC evidence map does not establish a donor-side clinical benefit. Any proposed intervention before procurement requires its own ethical, clinical and regulatory assessment.</p><p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">BHOC Transplant Evidence Hub ↗</a></p><span class="source-status">Repository evidence map · application-specific validation pending</span></div>
-          <div class="phase-panel" id="concept-01" hidden><strong>Our research question</strong><p>Under a separately authorized donor protocol, could characterized oxygen support protect tissue function before retrieval? Predefine who may receive it, when, and what measurements matter. The concept does not defer donation authorization or death determination.</p></div>
-        </article>
-
-        <article class="phase" id="stage-cooling">
-          <b>02 / RETRIEVAL</b><h3>Procure, cool &amp; transport</h3>
-          <p>After authorized retrieval, study oxygen availability during cooling and transfer to the organ centre. Measure each organ separately.</p>
-          <div class="phase-controls"><button type="button" data-panel-target="evidence-02" aria-controls="evidence-02" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-02" aria-controls="concept-02" aria-expanded="false">Concept</button></div>
-          <div class="phase-panel" id="evidence-02" hidden><strong>Evidence status</strong><p>The BHOC evidence map includes historical oxygen-carrier work in preservation and perfusion. It does not establish BHOC-specific benefit during cooling or transport.</p><p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">BHOC Transplant Evidence Hub ↗</a></p><span class="source-status">Repository evidence map · application-specific validation pending</span></div>
-          <div class="phase-panel" id="concept-02" hidden><strong>Our research question</strong><p>Could a reproducible carrier maintain useful oxygen availability while the graft cools and travels? Map temperature-specific affinity, oxidation, perfusate stability, tissue oxygenation and injury against current preservation controls.</p></div>
-        </article>
-
-        <article class="phase" id="stage-centre">
-          <b>03 / ORGAN PREPARATION CENTRE</b><h3>Assess, sustain &amp; prepare</h3>
-          <p>Use organ-specific perfusion to assess viability. Study immune or molecular interventions only within their own protocols, including a distinct xenograft path.</p>
-          <div class="phase-controls"><button type="button" data-panel-target="evidence-03" aria-controls="evidence-03" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-03" aria-controls="concept-03" aria-expanded="false">Concept</button></div>
-          <div class="phase-panel" id="evidence-03" hidden><strong>Evidence status</strong><p>Organ-perfusion studies offer a setting for viability assessment. Gene-edited xenografts and ex-vivo gene delivery are separate research fields; the current BHOC map does not establish compatibility or reduced immunogenicity.</p><p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">BHOC Transplant Evidence Hub ↗</a></p><span class="source-status">Repository evidence map · application-specific validation pending</span></div>
-          <div class="phase-panel" id="concept-03" hidden><strong>Our research question</strong><p>Can a measured oxygen-carrier perfusate support assessment and organ preparation across kidney, liver, heart and lung? In separate experiments, assess compatibility with ex-vivo gene delivery, immune conditioning or engineered grafts. BHOC supplies no genetic edit itself.</p></div>
-        </article>
-
-        <article class="phase" id="stage-rewarming">
-          <b>04 / TEMPERATURE TRANSITION</b><h3>Controlled rewarming</h3>
-          <p>Test carrier performance from cold to warm under measured pO₂, pH and flow conditions before transplantation.</p>
-          <div class="phase-controls"><button type="button" data-panel-target="evidence-04" aria-controls="evidence-04" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-04" aria-controls="concept-04" aria-expanded="false">Concept</button></div>
-          <div class="phase-panel" id="evidence-04" hidden><strong>Evidence status</strong><p>Historical HBOC-201 research includes cold-to-warm perfusion. BHOC-specific oxygen-affinity curves across temperature and any gain in procedural time have yet to be established.</p><p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">BHOC Transplant Evidence Hub ↗</a></p><span class="source-status">Repository evidence map · application-specific validation pending</span></div>
-          <div class="phase-panel" id="concept-04" hidden><strong>Our research question</strong><p>Can controlled oxygen availability preserve function during the cold-to-warm transition, and perhaps make the available procedural time more productive? Compare measured transition time, metabolism, oxidation and tissue injury against standard controls before claiming time gained.</p></div>
-        </article>
-
-        <article class="phase" id="stage-transplant">
-          <b>05 / IMPLANTATION</b><h3>Transplant &amp; reperfuse</h3>
-          <p>The prepared organ meets the matched recipient. Examine graft oxygenation at handoff and the early reperfusion period.</p>
-          <div class="phase-controls"><button type="button" data-panel-target="evidence-05" aria-controls="evidence-05" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-05" aria-controls="concept-05" aria-expanded="false">Concept</button></div>
-          <div class="phase-panel" id="evidence-05" hidden><strong>Evidence status</strong><p>Historical oxygen-carrier publications include organ perfusion before transplantation. They cannot be read as a recipient-side BHOC efficacy claim or generalized across organs.</p><p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">BHOC Transplant Evidence Hub ↗</a></p><span class="source-status">Repository evidence map · application-specific validation pending</span></div>
-          <div class="phase-panel" id="concept-05" hidden><strong>Our research question</strong><p>Does a specified ex-vivo oxygen-support protocol improve graft function at reperfusion? Any infusion into the recipient is a different clinical study with its own dose, safety and authorization.</p></div>
-        </article>
-
-        <article class="phase" id="stage-recovery">
-          <b>06 / AFTER TRANSPLANT</b><h3>Healing &amp; graft function</h3>
-          <p>Follow the person and the graft: recovery is meaningful only when measured as organ function and patient outcomes.</p>
-          <div class="phase-controls"><button type="button" data-panel-target="evidence-06" aria-controls="evidence-06" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-06" aria-controls="concept-06" aria-expanded="false">Concept</button></div>
-          <div class="phase-panel" id="evidence-06" hidden><strong>Evidence status</strong><p>Post-transplant follow-up in historical perfusion research does not establish that BHOC causes healing, creates stem cells or prevents rejection.</p><p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">BHOC Transplant Evidence Hub ↗</a></p><span class="source-status">Repository evidence map · application-specific validation pending</span></div>
-          <div class="phase-panel" id="concept-06" hidden><strong>Our research question</strong><p>In a separately approved recipient study, could measured oxygen delivery support early graft function? Predefine organ-specific outcomes, microvascular measures and safety. “Healing” here describes a research goal, not a demonstrated BHOC clinical effect.</p></div>
-        </article>
-      </div>
-      <div class="time-hypothesis"><strong>Test the time hypothesis:</strong> compare time to temperature targets, duration of acceptable oxygen extraction and function, time available for assessment, and post-reperfusion outcomes. The extra interval has value only if graft and patient outcomes remain at least preserved.</div>
-    </div></section>
-
-    <section class="section dark" id="demand"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow" style="color:#adcbb9">03 / Molecular response to a changing tissue</div><h2 class="serif">Demand is not static.</h2></div><p class="section-intro">As local pO₂ falls, hemoglobin’s binding equilibrium favors oxygen release. Choose a demand state to see the idea. The dots are a schematic, not a measured BHOC dose or release curve.</p></div>
-      <div class="demand-layout">
-        <div class="diagram">
-          <div class="diagram-top">Schematic / reversible oxygen binding and release</div>
-          <svg id="demand-svg" viewBox="0 0 570 305" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic perfusion path toward an organ">
-            <g fill="none" stroke="#83a798"><path d="M36 132 H183 Q216 132 238 153 L294 200" stroke-width="13" opacity=".4"/><path d="M293 200 L351 155 Q367 136 401 136 H530" stroke-width="13" opacity=".4"/><path d="M31 132 H184 Q216 132 238 153 L294 200 L351 155 Q370 136 401 136 H540" stroke-width="1.5" stroke-dasharray="4 6"/></g>
-            <g fill="none" stroke="#c6dacd" opacity=".75" stroke-linecap="round"><path d="M288 66 C240 61 211 89 201 129 M318 68 C368 73 389 114 373 149 M205 181 C220 229 258 250 297 260 M350 238 C371 226 386 209 395 190" stroke-width="1.7"/><path d="M300 83 C343 75 367 108 357 144 M218 171 C214 214 260 244 289 247" stroke-width=".7"/></g>
-            <g fill="#a9cebb"><circle cx="291" cy="151" r="5"/><circle cx="323" cy="174" r="4"/><circle cx="262" cy="190" r="3"/><circle cx="306" cy="225" r="4"/></g>
-            <g id="oxygen-flow" fill="#c2896a">
-              <circle class="oxygen-dot" data-level="1" cx="64" cy="132" r="5"/><circle class="oxygen-dot" data-level="1" cx="149" cy="132" r="5"/><circle class="oxygen-dot" data-level="1" cx="446" cy="136" r="5"/>
-              <circle class="oxygen-dot" data-level="2" cx="104" cy="132" r="4"/><circle class="oxygen-dot" data-level="2" cx="190" cy="134" r="4"/><circle class="oxygen-dot" data-level="2" cx="485" cy="136" r="4"/>
-              <circle class="oxygen-dot" data-level="3" cx="48" cy="132" r="3"/><circle class="oxygen-dot" data-level="3" cx="126" cy="132" r="3"/><circle class="oxygen-dot" data-level="3" cx="215" cy="143" r="3"/><circle class="oxygen-dot" data-level="3" cx="510" cy="136" r="3"/>
-            </g>
-            <g fill="#c8d8cc" font-family="Arial,sans-serif" font-size="10" letter-spacing="2"><text x="32" y="93">INPUT</text><text x="259" y="293">ORGAN</text><text x="440" y="94">READOUT</text></g>
-          </svg>
-          <div class="switches" role="group" aria-label="Conceptual metabolic demand"><button type="button" data-demand="1" aria-pressed="false">Lower</button><button type="button" data-demand="2" aria-pressed="true">Baseline</button><button type="button" data-demand="3" aria-pressed="false">Higher</button></div>
-          <div class="diagram-caption" id="demand-copy">Baseline demand → characterize reversible release.</div>
-          <p class="diagram-note">Illustrative interface only. No clinical units or claimed response time.</p>
-        </div>
-        <ol><li><span>MOLECULE</span><div><strong>Intrinsic release</strong><p>At a lower local pO₂, carrier saturation falls and oxygen can unload. The amount also depends on affinity, dose, flow, pH and temperature.</p></div></li><li><span>TRANSITION</span><div><strong>Cold → warm</strong><p>Track P50/oxygen curves, kinetics, methemoglobin and vascular response at defined temperatures throughout cooling and rewarming.</p></div></li><li><span>FUNCTION</span><div><strong>Did time help?</strong><p>Measure energy state, viable operating window, organ-specific output and post-transplant recovery against controls.</p></div></li></ol>
-      </div>
-    </div></section>
-
-    <section class="section" id="program"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">04 / Practical research sequence</div><h2 class="serif">Start with a defined organ.</h2></div><p class="section-intro">The vision covers the full transplant journey. The first practical test can be a kidney ex-vivo cold-to-warm protocol, followed by distinct donor-side and recipient-side paths.</p></div>
-      <div class="program"><article><b>01 / BENCH</b><h3>Map the whole curve</h3><p>Predefine P50 and unloading across temperature, pH and oxygen gradients; quantify stability, oxidation, free heme, dose and batch comparability.</p></article><article><b>02 / EX VIVO</b><h3>Test useful time</h3><p>Compare cold-to-warm kidney perfusion with relevant controls. Measure transition time, oxygen extraction, ATP, lactate, resistance, kidney output and tissue injury.</p></article><article><b>03 / CLINICAL PATHS</b><h3>Separate each setting</h3><p>Design donor-side, transport/operating room and recipient-side studies with their own permissions, safety, efficacy and organ-specific endpoints. Test immunomodulation separately.</p></article></div>
-      <div class="callout"><strong>Meaning of “reproducible supply”:</strong> a manufacturable, quality-controlled carrier is a development objective. It does not mean infinite availability. Donor blood has collection, compatibility and logistics constraints; manufacturing has its own capacity, quality and distribution constraints.</div>
-    </div></section>
-
-    <section class="section dark" id="evidence"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow" style="color:#a3e2e8">05 / Evidence &amp; boundaries</div><h2 class="serif">Follow the evidence to its source.</h2></div><p class="section-intro">The BHOC evidence hub separates historical oxygen-carrier studies from external transplantation research. Neither layer establishes efficacy for the proposed BHOC Transplant program.</p></div>
-      <div class="evidence-grid">
-        <article class="evidence"><b>Historical carrier context</b><h3>Preservation &amp; perfusion</h3><p>Source-linked HBOC and HBOC-201 publications provide testable context. Results depend on the named product, organ, protocol and study design.</p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">Browse historical records ↗</a></article>
-        <article class="evidence"><b>Separate external research</b><h3>Organ-specific workflows</h3><p>Machine perfusion, viability assessment and reperfusion research help identify where oxygen-delivery questions can be measured. Relevance is not BHOC efficacy.</p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-relevant-evidence.html" target="_blank" rel="noopener noreferrer">Browse related evidence ↗</a></article>
-        <article class="evidence"><b>Product characterization</b><h3>The oxygen-release profile</h3><p>Temperature, pH, oxygen gradients, oxidation and formulation must be characterized for a specific carrier. The historical P50 value is not a measured BHOC curve through cooling and rewarming.</p><a href="https://bhoctherapeutics.com/bhoc/hemoglobin/" target="_blank" rel="noopener noreferrer">BHOC hemoglobin context ↗</a></article>
-        <article class="evidence"><b>Development program</b><h3>Outcomes still to be tested</h3><p>More useful time, gene-intervention compatibility, xenograft support and recipient healing remain distinct hypotheses requiring controlled measurements and safety data.</p><a href="#program">Research sequence ↑</a></article>
-      </div>
-      <div class="claim-boundary"><h3>Research concept, not a clinical indication</h3><p>BHOC Transplant proposes to study oxygen availability before, during and after transplantation, beginning with defined ex-vivo perfusion work. Donor-side and recipient-side interventions require separate authorization and evidence. The current concept does not establish BHOC-mediated gene modification, reduced rejection, stem-cell formation or faster transplantation.</p><p><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">Explore the BHOC Transplant Evidence Hub ↗</a></p></div>
-    </div></section>
-  </main>
-
-  <footer><div class="wrap footer-grid"><div><strong>BHOC Transplant</strong><br>BHOCtransplant.com · proposed domain<br>Concept study, 26 September 2026</div><div>Part of the <a href="https://bhoctherapeutics.com/">BHOC Therapeutics</a> network<br><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html">Transplant evidence index ↗</a><br>Not an approved indication or public product claim.</div></div></footer>
-  <script>
-    (function(){
-      var copy = {1:'Lower demand → test oxygen loading and retention.',2:'Baseline demand → characterize reversible release.',3:'Higher demand → test greater release as local pO₂ falls.'};
-      var buttons = document.querySelectorAll('[data-demand]');
-      var dots = document.querySelectorAll('.oxygen-dot');
-      buttons.forEach(function(button){button.addEventListener('click',function(){
-        var value = Number(button.getAttribute('data-demand'));
-        buttons.forEach(function(b){b.setAttribute('aria-pressed',b===button?'true':'false');});
-        dots.forEach(function(dot){dot.style.opacity = Number(dot.getAttribute('data-level'))<=value?'1':'.09';});
-        document.getElementById('demand-copy').textContent = copy[value];
-      });});
-      dots.forEach(function(dot){dot.style.opacity=Number(dot.getAttribute('data-level'))<=2?'1':'.09';});
-      document.querySelectorAll('[data-panel-target]').forEach(function(button){
-        button.addEventListener('click',function(){
-          var card = button.closest('.phase');
-          var target = document.getElementById(button.getAttribute('data-panel-target'));
-          var opening = target.hidden;
-          card.querySelectorAll('.phase-panel').forEach(function(panel){panel.hidden=true;});
-          card.querySelectorAll('[data-panel-target]').forEach(function(other){other.setAttribute('aria-expanded','false');});
-          target.hidden = !opening;
-          button.setAttribute('aria-expanded',opening?'true':'false');
-        });
-      });
-    }());
-  </script>
+    </section><section class="section home-directions"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Explore the research</div><h2 class="serif">A journey with separate questions.</h2></div><p class="section-intro">The route from donor to recipient crosses distinct scientific, ethical and clinical settings. Enter where you need the detail.</p></div><div class="tile-grid"><a class="tile" href="journey.html"><small>01 / Stages</small><h3>Follow the organ</h3><p>Six connected stages, multiple organ sources, and a separate recipient path. Each stage opens its own Evidence and Concept notes.</p><span class="read-more">Explore the journey ↗</span></a><a class="tile" href="science.html"><small>02 / Biology</small><h3>Start at the molecule</h3><p>Oxygen affinity, temperature and local demand define questions to measure. Historical carrier findings are separated from BHOC-specific validation.</p><span class="read-more">Explore the science ↗</span></a><a class="tile" href="evidence.html"><small>03 / Sources</small><h3>See what is known</h3><p>Navigate transplantation evidence alongside BHOC Therapeutics and veterinary source hubs, with research proposals clearly labelled.</p><span class="read-more">Open evidence ↗</span></a></div></div></section><section class="section alt"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Latest from the network</div><h2 class="serif">Updates with a source trail.</h2></div><p class="section-intro">A short editorial selection; original BHOC newsrooms and evidence hubs hold the full record.</p></div><div class="tile-grid"><a class="tile" href="news.html"><small>26 September 2026 · Site update</small><h3>BHOC Transplant goes live</h3><p>The research journey now connects donor, organ and recipient paths without treating a hypothesis as clinical evidence.</p><span class="read-more">Read updates ↗</span></a><a class="tile" href="https://archiljali.github.io/BHOC-platform/transplant/HOPE-NMP-Liver-Transplantation-2026.html" target="_blank" rel="noopener noreferrer"><small>19 September 2026 · Evidence brief</small><h3>Machine perfusion research</h3><p>External liver, kidney and lung studies are mapped as research context. They are not BHOC efficacy evidence.</p><span class="read-more">Open evidence brief ↗</span></a><a class="tile" href="partners.html"><small>Collaboration</small><h3>Build the next test</h3><p>Define a tractable organ-specific protocol with clinical, perfusion and translational research groups.</p><span class="read-more">Explore partnerships ↗</span></a></div></div></section><section class="partner-ribbon"><div class="wrap"><div><h2>One organ. One protocol. A measurable question.</h2><p>Begin with product characterization and controlled ex-vivo work, then assess further pathways separately.</p></div><a class="button" href="partners.html">Discuss collaboration ↗</a></div></section>
+</main>
+<footer><div class="wrap footer-grid"><div><strong>BHOC Transplant</strong><p>Cell · Organ · Whole System<br>Concept study · 26 September 2026<br>BHOCtransplant.com · proposed domain</p></div><div class="footer-links"><b>Explore</b><a href="journey.html">Transplant journey</a><a href="science.html">Science &amp; metabolism</a><a href="evidence.html">Evidence &amp; limitations</a><a href="news.html">News</a><a href="partners.html">Partners</a></div><div class="footer-links"><b>BHOC network</b><a href="https://bhoctherapeutics.com/" target="_blank" rel="noopener noreferrer">BHOC Therapeutics ↗</a><a href="https://bhocvet.com/" target="_blank" rel="noopener noreferrer">BHOC Veterinary ↗</a><a href="https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html" target="_blank" rel="noopener noreferrer">Transplant Evidence Hub ↗</a><small>Research concept. No approved clinical indication is claimed.</small></div></div></footer>
 </body>
 </html>
