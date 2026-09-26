@@ -45,7 +45,20 @@
     .hero-art { width:100%; margin:34px 0 0; }
     .hero-art img { display:block; width:100%; height:auto; max-height:490px; object-fit:contain; }
     .hero-art figcaption { color:#60786d; font:11px/1.5 Arial,sans-serif; letter-spacing:.04em; margin:5px 0 0; }
-    .hero-foot { display:flex; justify-content:space-between; gap:20px; border-top:1px solid #c9cec3; padding-top:14px; margin-top:20px; color:#687b73; font:10px/1.3 Arial,sans-serif; text-transform:uppercase; letter-spacing:.14em; }
+    .journey-bar { border-top:1px solid #bdc3d8; padding-top:24px; margin-top:16px; }
+    .journey-vision { display:flex; justify-content:space-between; align-items:end; gap:24px; }
+    .journey-vision h2 { margin:0; color:var(--ink); font:normal clamp(29px,3.1vw,43px)/1.1 Georgia,serif; letter-spacing:-.035em; }
+    .journey-vision h2 em { color:var(--copper); font-weight:normal; }
+    .journey-vision p { max-width:395px; margin:0; color:#59627f; font-size:15px; }
+    .stage-nav { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:9px; margin-top:22px; }
+    .stage-nav a { position:relative; min-height:89px; padding:14px 30px 15px 15px; display:flex; flex-direction:column; justify-content:space-between; gap:9px; background:#fffefa; border:1px solid #c7cce0; text-decoration:none; transition:transform .2s ease,background-color .2s ease,border-color .2s ease; }
+    .stage-nav a small { color:#a5527d; font:700 12px/1 Arial,sans-serif; letter-spacing:.12em; }
+    .stage-nav a strong { color:#303963; font:700 14px/1.22 Arial,sans-serif; }
+    .stage-nav a::after { content:'↗'; position:absolute; right:13px; bottom:13px; color:#a5527d; font-size:17px; }
+    .stage-nav a:hover,.stage-nav a:focus-visible { background:#edf0fa; border-color:#6877ae; transform:translateY(-2px); }
+    .stage-nav a:focus-visible { outline:2px solid #a5527d; outline-offset:2px; }
+    .phase { scroll-margin-top:24px; }
+    .phase:target { border-color:#a5527d; box-shadow:0 0 0 2px #a5527d,0 12px 27px rgba(36,40,79,.12); }
     .section { padding:95px 0; }
     .section.alt { background:var(--paper2); }
     .section.dark { background:var(--ink); color:var(--paper); }
@@ -161,7 +174,6 @@
     .hero h1 em { color:#6972ae; }
     .lede { max-width:830px; color:#434c6b; }
     .micro { max-width:840px; color:#606a83; }
-    .hero-foot { color:#676b88; border-top-color:#bdc3d8; }
     .button:hover { background:#485896; }
     .section-intro { color:#5b6383; }
     .dark .section-intro { color:#c9d2ee; }
@@ -203,8 +215,8 @@
     footer { background:#191d37; color:#d4d8e9; }
     footer a { color:#a9e6eb; }
     .source-note { color:#68718e; }
-    @media(max-width:950px) { .topnav { display:none; } .demand-layout,.entry-map { grid-template-columns:1fr; } .reference-grid,.continuum { grid-template-columns:repeat(2,1fr); } }
-    @media(max-width:630px) { .wrap { width:calc(100% - 36px); } .brand-sub { font-size:8px; } .status { font-size:8px; } .hero h1 { font-size:48px; } .hero-grid { padding:42px 0 26px; } .hero-art figcaption { padding:8px 18px; } .section { padding:64px 0; } .section-head { display:block; } .section-intro { margin-top:20px; } .system,.program,.reference-grid,.evidence-grid,.continuum { grid-template-columns:1fr; } .demand-layout li { grid-template-columns:65px 1fr; } .matrix-wrap { overflow-x:auto; } .matrix { min-width:650px; } .footer-grid { display:block; } }
+    @media(max-width:950px) { .topnav { display:none; } .demand-layout,.entry-map { grid-template-columns:1fr; } .reference-grid,.continuum { grid-template-columns:repeat(2,1fr); } .stage-nav { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+    @media(max-width:630px) { .wrap { width:calc(100% - 36px); } .brand-sub { font-size:8px; } .status { font-size:8px; } .hero h1 { font-size:48px; } .hero-grid { padding:42px 0 26px; } .hero-art figcaption { padding:8px 18px; } .journey-vision { display:block; } .journey-vision p { margin-top:11px; } .stage-nav { grid-template-columns:repeat(2,minmax(0,1fr)); } .section { padding:64px 0; } .section-head { display:block; } .section-intro { margin-top:20px; } .system,.program,.reference-grid,.evidence-grid,.continuum { grid-template-columns:1fr; } .demand-layout li { grid-template-columns:65px 1fr; } .matrix-wrap { overflow-x:auto; } .matrix { min-width:650px; } .footer-grid { display:block; } }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
   </style>
 </head>
@@ -234,7 +246,20 @@
         </div>
 
       </div>
-      <div class="wrap hero-foot"><span>Cell · organ · organism</span><span>Donor → cooling → organ centre → rewarming → transplantation → recovery</span></div>
+      <div class="wrap journey-bar">
+        <div class="journey-vision">
+          <h2>Cell · Organ · <em>Whole System</em></h2>
+          <p>Metabolic control and support, from the cell to the recipient: a research goal to test at every stage.</p>
+        </div>
+        <nav class="stage-nav" aria-label="Explore the transplant stages">
+          <a href="#stage-donor"><small>01 / 06</small><strong>Donor</strong></a>
+          <a href="#stage-cooling"><small>02 / 06</small><strong>Cooling</strong></a>
+          <a href="#stage-centre"><small>03 / 06</small><strong>Organ centre</strong></a>
+          <a href="#stage-rewarming"><small>04 / 06</small><strong>Rewarming</strong></a>
+          <a href="#stage-transplant"><small>05 / 06</small><strong>Transplantation</strong></a>
+          <a href="#stage-recovery"><small>06 / 06</small><strong>Recovery</strong></a>
+        </nav>
+      </div>
     </section>
 
     <section class="principle"><div class="wrap"><p>Stop thinking only about blood. Think about <em>life, function and useful time.</em></p><div class="minor">Molecular oxygen release → organ-level support → a separate path to recipient healing. Each transition needs its own evidence.</div></div></section>
@@ -269,7 +294,7 @@
       <p class="path-caption">For xenografts, donor-animal gene editing occurs before organ retrieval. Possible gene delivery to an isolated organ inside the preparation centre is a separate experimental question. BHOC has not been shown to modify genes or reduce rejection.</p>
 
       <div class="continuum">
-        <article class="phase">
+        <article class="phase" id="stage-donor">
           <b>01 / BEFORE PROCUREMENT</b><h3>Donor care &amp; decision</h3>
           <p>Consider whether oxygen-support research could contribute before retrieval while clinical care, authorization and death determination remain independent.</p>
           <div class="phase-controls"><button type="button" data-panel-target="evidence-01" aria-controls="evidence-01" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-01" aria-controls="concept-01" aria-expanded="false">Concept</button></div>
@@ -277,7 +302,7 @@
           <div class="phase-panel" id="concept-01" hidden><strong>Our research question</strong><p>Under a separately authorized donor protocol, could characterized oxygen support protect tissue function before retrieval? Predefine who may receive it, when, and what measurements matter. The concept does not defer donation authorization or death determination.</p></div>
         </article>
 
-        <article class="phase">
+        <article class="phase" id="stage-cooling">
           <b>02 / RETRIEVAL</b><h3>Procure, cool &amp; transport</h3>
           <p>After authorized retrieval, study oxygen availability during cooling and transfer to the organ centre. Measure each organ separately.</p>
           <div class="phase-controls"><button type="button" data-panel-target="evidence-02" aria-controls="evidence-02" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-02" aria-controls="concept-02" aria-expanded="false">Concept</button></div>
@@ -285,7 +310,7 @@
           <div class="phase-panel" id="concept-02" hidden><strong>Our research question</strong><p>Could a reproducible carrier maintain useful oxygen availability while the graft cools and travels? Map temperature-specific affinity, oxidation, perfusate stability, tissue oxygenation and injury against current preservation controls.</p></div>
         </article>
 
-        <article class="phase">
+        <article class="phase" id="stage-centre">
           <b>03 / ORGAN PREPARATION CENTRE</b><h3>Assess, sustain &amp; prepare</h3>
           <p>Use organ-specific perfusion to assess viability. Study immune or molecular interventions only within their own protocols, including a distinct xenograft path.</p>
           <div class="phase-controls"><button type="button" data-panel-target="evidence-03" aria-controls="evidence-03" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-03" aria-controls="concept-03" aria-expanded="false">Concept</button></div>
@@ -293,7 +318,7 @@
           <div class="phase-panel" id="concept-03" hidden><strong>Our research question</strong><p>Can a measured oxygen-carrier perfusate support assessment and organ preparation across kidney, liver, heart and lung? In separate experiments, assess compatibility with ex-vivo gene delivery, immune conditioning or engineered grafts. BHOC supplies no genetic edit itself.</p></div>
         </article>
 
-        <article class="phase">
+        <article class="phase" id="stage-rewarming">
           <b>04 / TEMPERATURE TRANSITION</b><h3>Controlled rewarming</h3>
           <p>Test carrier performance from cold to warm under measured pO₂, pH and flow conditions before transplantation.</p>
           <div class="phase-controls"><button type="button" data-panel-target="evidence-04" aria-controls="evidence-04" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-04" aria-controls="concept-04" aria-expanded="false">Concept</button></div>
@@ -301,7 +326,7 @@
           <div class="phase-panel" id="concept-04" hidden><strong>Our research question</strong><p>Can controlled oxygen availability preserve function during the cold-to-warm transition, and perhaps make the available procedural time more productive? Compare measured transition time, metabolism, oxidation and tissue injury against standard controls before claiming time gained.</p></div>
         </article>
 
-        <article class="phase">
+        <article class="phase" id="stage-transplant">
           <b>05 / IMPLANTATION</b><h3>Transplant &amp; reperfuse</h3>
           <p>The prepared organ meets the matched recipient. Examine graft oxygenation at handoff and the early reperfusion period.</p>
           <div class="phase-controls"><button type="button" data-panel-target="evidence-05" aria-controls="evidence-05" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-05" aria-controls="concept-05" aria-expanded="false">Concept</button></div>
@@ -309,7 +334,7 @@
           <div class="phase-panel" id="concept-05" hidden><strong>Our research question</strong><p>Does a specified ex-vivo oxygen-support protocol improve graft function at reperfusion? Any infusion into the recipient is a different clinical study with its own dose, safety and authorization.</p></div>
         </article>
 
-        <article class="phase">
+        <article class="phase" id="stage-recovery">
           <b>06 / AFTER TRANSPLANT</b><h3>Healing &amp; graft function</h3>
           <p>Follow the person and the graft: recovery is meaningful only when measured as organ function and patient outcomes.</p>
           <div class="phase-controls"><button type="button" data-panel-target="evidence-06" aria-controls="evidence-06" aria-expanded="false">Evidence</button><button type="button" data-panel-target="concept-06" aria-controls="concept-06" aria-expanded="false">Concept</button></div>
