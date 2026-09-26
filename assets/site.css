@@ -319,3 +319,11 @@ footer a { font-size:14px; }
   .home .stage-nav a { min-height:73px; }
   .home .tile { min-height:0; padding:20px; }
 }
+
+.footer-identity p { margin:12px 0 0; line-height:1.65; }
+.footer-socials { display:flex; flex-wrap:wrap; gap:8px; margin-top:15px; }
+.footer-socials a { border:1px solid #7986af; padding:7px 10px; font-size:12px; font-weight:bold; text-decoration:none; }
+.footer-socials a:hover,.footer-socials a:focus-visible { background:#333c69; color:#fff; }
+.footer-meta { border-top:1px solid #5d668e; margin-top:30px; padding-top:16px; color:#c3cbe2; font-size:12px; line-height:1.55; }
+.footer-meta p { max-width:1100px; margin:0 0 8px; }
+.footer-meta p:last-child { margin-bottom:0; color:#e2e7f5; }
