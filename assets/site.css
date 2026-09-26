@@ -97,7 +97,7 @@
     .time-hypothesis strong { color:var(--ink); }
     .demand-layout { display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:center; }
     .diagram { min-height:490px; border:1px solid #789189; background:#23413c; padding:30px; position:relative; overflow:hidden; box-shadow:var(--shadow); }
-    .diagram::before { content:''; position:absolute; inset:0; opacity:.13; background:repeating-linear-gradient(0deg,transparent 0 34px,#acc3b5 35px 36px),repeating-linear-gradient(90deg,transparent 0 34px,#acc3b5 35px 36px); }
+    .diagram::before { content:''; position:absolute; inset:0; pointer-events:none; opacity:.13; background:repeating-linear-gradient(0deg,transparent 0 34px,#acc3b5 35px 36px),repeating-linear-gradient(90deg,transparent 0 34px,#acc3b5 35px 36px); }
     .diagram svg { position:relative; z-index:1; width:100%; height:auto; }
     .diagram-top { position:relative; z-index:2; color:#accabe; font-size:10px; letter-spacing:.18em; text-transform:uppercase; }
     .switches { display:flex; gap:8px; flex-wrap:wrap; margin:23px 0; }
