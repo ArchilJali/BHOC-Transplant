@@ -292,3 +292,30 @@ footer a { font-size:14px; }
   .footer-grid { grid-template-columns:1fr; }
   .status { font-size:10px; }
 }
+
+/* A shorter reading path on the landing page. */
+.home .hero { padding-bottom:28px; }
+.home .hero-grid { padding:37px 0 17px; }
+.home .hero h1 { margin:17px 0 18px; }
+.home .lede { margin:0; line-height:1.5; }
+.home .hero-actions { margin-top:22px; }
+.home .micro { margin:21px 0 0; }
+.home .journey-bar { margin-top:0; padding-top:16px; }
+.home .stage-nav { margin-top:16px; }
+.home .stage-nav a { min-height:76px; padding:11px 27px 12px 12px; gap:6px; }
+.home .section { padding:59px 0; }
+.home .section-head,.home .home-directions .section-head { margin-bottom:23px; }
+.home .tile-grid { gap:12px; }
+.home .tile { min-height:204px; padding:22px; }
+.home .tile h3 { margin:19px 0 9px; }
+.home .tile p { margin-bottom:15px; }
+.home .partner-ribbon { padding:31px 0; }
+.home footer { padding:38px 0; }
+@media(max-width:630px) {
+  .home .hero-grid { padding:30px 0 15px; }
+  .home .hero h1 { margin:14px 0; }
+  .home .hero { padding-bottom:23px; }
+  .home .section { padding:46px 0; }
+  .home .stage-nav a { min-height:73px; }
+  .home .tile { min-height:0; padding:20px; }
+}
