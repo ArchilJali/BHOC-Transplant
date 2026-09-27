@@ -1,4 +1,6 @@
 User-agent: *
+Allow: /cdn-cgi/image/
+Disallow: /cdn-cgi/
 Allow: /
 
 Sitemap: https://bhoctransplant.com/sitemap.xml
