@@ -440,3 +440,44 @@ footer a { font-size:14px; }
   .journey-page .phase { min-height:0; }
   .science-page .demand-layout li { grid-template-columns:76px 1fr; gap:11px; }
 }
+
+/* Independent advocacy belongs beside research collaborators, with an explicit evidence boundary. */
+.partners-page .advocacy-section { background:linear-gradient(125deg,#edf1f8,#f5f3f9 50%); }
+.advocacy-section .section-intro { max-width:575px; font-size:16px; line-height:1.6; }
+.advocacy-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; align-items:stretch; }
+.advocacy-principle,.advocate-card { padding:27px 29px; border:1px solid #c7cce0; }
+.advocacy-principle { background:#fffefa; border-top:4px solid #75c8d4; }
+.advocacy-principle h3 { margin:0 0 22px; color:#232847; font:normal clamp(29px,2.7vw,38px)/1.12 Georgia,serif; letter-spacing:-.035em; }
+.advocacy-principle h3 em { color:#a5527d; font-weight:normal; }
+.advocacy-principle p { color:#4c5876; font-size:15px; line-height:1.65; margin:0 0 17px; }
+.advocacy-principle p:last-child { margin-bottom:0; }
+.advocacy-principle sup { line-height:0; }
+.advocacy-principle sup a { color:#8c3d6b; font-size:14px; font-weight:bold; text-decoration:none; }
+.advocacy-principle sup a:hover,.advocacy-principle sup a:focus-visible { text-decoration:underline; }
+.advocate-card { background:#262d55; border-color:#50547d; border-top:4px solid #b96891; color:#f9f6fd; }
+.advocate-head { display:grid; grid-template-columns:128px minmax(0,1fr); align-items:start; gap:20px; }
+.advocate-photo { margin:0; }
+.advocate-photo img { display:block; width:128px; height:161px; object-fit:cover; object-position:center 18%; border:1px solid #a6b8d0; }
+.advocate-photo figcaption { margin-top:6px; font-size:10px; line-height:1.35; color:#bdcde4; }
+.advocate-photo a { color:inherit; }
+.advocate-label { color:#a4e2e9; font-size:11px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
+.advocate-card h3 { margin:8px 0 9px; font:normal 31px/1.12 Georgia,serif; }
+.advocate-card p { margin:0; color:#dbe1f2; font-size:14px; line-height:1.55; }
+.advocate-card blockquote { margin:21px 0 17px; padding:4px 0 4px 17px; border-left:3px solid #79d4dc; color:#fffdfa; font:italic 23px/1.3 Georgia,serif; }
+.advocate-card .advocate-context { color:#cbd4e9; font-size:13px; }
+.advocate-links { display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:19px; }
+.advocate-links a { color:#a9edf0; font-size:14px; font-weight:700; text-underline-offset:3px; }
+.advocacy-notes { margin-top:19px; padding:17px 20px; border:1px solid #c7cce0; background:#f8f8fc; }
+.advocacy-notes h3 { margin:0 0 9px; color:#37436d; font-size:12px; letter-spacing:.1em; text-transform:uppercase; }
+.advocacy-notes p { margin:7px 0; color:#59627f; font-size:13px; line-height:1.55; }
+.advocacy-notes p > a:first-child { display:inline-block; min-width:25px; color:#90436f; font-weight:bold; text-decoration:none; }
+.advocacy-notes p > a:last-child:not(:first-child) { color:#334b8a; font-weight:bold; }
+@media(max-width:850px) { .advocacy-layout { grid-template-columns:1fr; } }
+@media(max-width:520px) {
+  .advocacy-principle,.advocate-card { padding:22px 20px; }
+  .advocate-head { grid-template-columns:92px minmax(0,1fr); gap:14px; }
+  .advocate-photo img { width:92px; height:116px; }
+  .advocate-card h3 { font-size:27px; }
+  .advocate-card blockquote { font-size:20px; }
+  .advocacy-notes { padding:15px; }
+}
