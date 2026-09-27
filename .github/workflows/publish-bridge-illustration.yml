@@ -1,0 +1,146 @@
+name: Publish approved Bridge Solution illustration
+on:
+  push:
+    branches: [main]
+    paths:
+      - assets/news/bhoc-transplant-bridge-solution.avif
+permissions:
+  contents: write
+concurrency:
+  group: publish-bridge-illustration
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Install image tools
+        run: python3 -m pip install --disable-pip-version-check 'Pillow==11.3.0'
+      - name: Prepare images and update the two relevant pages
+        shell: python
+        run: |
+          from pathlib import Path
+          from PIL import Image
+          import hashlib, html, json, re
+          source = Path('assets/news/bhoc-transplant-bridge-solution.avif')
+          raw = source.read_bytes()
+          assert hashlib.sha256(raw).hexdigest() == '345c1e0a8d48fd93c71afdac4631fd40b63d3efd161f31e60b008e2dce246fa2', 'Unexpected source image'
+          image = Image.open(source).convert('RGB')
+          assert image.size == (1200, 675)
+          image.save(source.with_suffix('.webp'), 'WEBP', quality=86, method=6)
+          image.save(source.with_suffix('.jpg'), 'JPEG', quality=88, optimize=True, progressive=True)
+          thumb = image.resize((800, 450), Image.Resampling.LANCZOS)
+          thumb.save(source.with_name('bhoc-transplant-bridge-solution-800.webp'), 'WEBP', quality=80, method=6)
+          page = Path('news/robert-montgomery-transplant-perspective.html')
+          text = page.read_text(encoding='utf-8')
+          assert text.lower().startswith('<!doctype html>') and '</body></html>' in text
+          assert text.count('<article class="feature-copy">') == 1
+          assert 'Bridge Solution' not in text, 'Illustration appears already installed; do not overwrite'
+          alt = 'Bridge Solution: pencil-and-watercolor illustration of a surgeon, heart, kidney, pig and patients waiting for transplantation.'
+          caption = 'Bridge Solution. Original AI-assisted editorial illustration for BHOC Transplant. Symbolic figures, not a photograph or portrait of Robert Montgomery or a record of a specific procedure.'
+          base = 'https://bhoctransplant.com/assets/news/bhoc-transplant-bridge-solution'
+          text = text.replace('content="index,follow"', 'content="index,follow,max-image-preview:large"', 1)
+          text = text.replace('<meta name="twitter:card" content="summary">', '<meta name="twitter:card" content="summary_large_image">', 1)
+          metas = '\n'.join([
+              '<meta property="og:image" content="' + base + '.jpg">',
+              '<meta property="og:image:secure_url" content="' + base + '.jpg">',
+              '<meta property="og:image:type" content="image/jpeg">',
+              '<meta property="og:image:width" content="1200">',
+              '<meta property="og:image:height" content="675">',
+              '<meta property="og:image:alt" content="' + html.escape(alt, quote=True) + '">',
+              '<meta name="twitter:image" content="' + base + '.jpg">',
+              '<meta name="twitter:image:alt" content="' + html.escape(alt, quote=True) + '">'
+          ])
+          styles = '''<style>
+          .bridge-figure{max-width:1100px;margin:24px auto 0;padding:0 24px;box-sizing:border-box}
+          .bridge-figure img{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:10px}
+          .bridge-figure figcaption{font-size:13px;line-height:1.6;margin-top:10px;color:#596673}
+          @media(max-width:600px){.bridge-figure{padding:0 16px;margin-top:16px}.bridge-figure figcaption{font-size:12px}}
+          </style>'''
+          text = text.replace('</head>', metas + '\n' + styles + '\n</head>', 1)
+          figure = '''<figure class="bridge-figure">
+          <picture>
+          <source type="image/avif" srcset="../assets/news/bhoc-transplant-bridge-solution.avif">
+          <source type="image/webp" srcset="../assets/news/bhoc-transplant-bridge-solution-800.webp 800w, ../assets/news/bhoc-transplant-bridge-solution.webp 1200w" sizes="(max-width:600px) calc(100vw - 32px), (max-width:1100px) calc(100vw - 48px), 1052px">
+          <img src="../assets/news/bhoc-transplant-bridge-solution.jpg" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="''' + html.escape(alt, quote=True) + '''">
+          </picture>
+          <figcaption>''' + html.escape(caption) + '''</figcaption>
+          </figure>'''
+          text = re.sub(r'<aside class="source-photo-link".*?</aside>\s*', '', text, count=1, flags=re.S)
+          text = text.replace('<article class="feature-copy">', figure + '\n<article class="feature-copy">', 1)
+          match = re.search(r'(<script type="application/ld\+json">)(.*?)(</script>)', text, re.S)
+          assert match
+          data = json.loads(match.group(2))
+          article = next(node for node in data['@graph'] if node.get('@type') == 'NewsArticle')
+          article['image'] = {'@type': 'ImageObject', 'url': base + '.jpg', 'contentUrl': base + '.jpg', 'name': 'Bridge Solution | BHOC Transplant', 'description': alt, 'caption': caption, 'width': 1200, 'height': 675, 'creditText': 'AI-assisted editorial illustration for BHOC Transplant'}
+          article['dateModified'] = '2026-09-27'
+          text = text[:match.start(2)] + json.dumps(data, ensure_ascii=False, separators=(',', ':')) + text[match.end(2):]
+          text = text.replace('Version 1.1', 'Version 1.2')
+          text = text.replace('<!-- Photo clearance checked', '<!-- Original approved Bridge Solution artwork added 2026-09-27; NYU/NYT photographs are not reproduced. -->\n<!-- Photo clearance checked', 1)
+          assert 'Keeping organs and patients viable' not in text
+          assert 'Biological Hemoglobin Oxygen Carrier' in text
+          assert '</article>' in text and '</footer>' in text
+          page.write_text(text, encoding='utf-8')
+          news = Path('news.html')
+          listing = news.read_text(encoding='utf-8')
+          pattern = r'(<article id="robert-montgomery"><div class="story-meta">.*?)(</div><div class="story">)'
+          hit = re.search(pattern, listing, re.S)
+          assert hit, 'News listing has changed; stop instead of guessing'
+          thumbnail = '<a href="news/robert-montgomery-transplant-perspective.html" style="display:block;width:180px;max-width:100%;margin-top:12px"><img src="assets/news/bhoc-transplant-bridge-solution-800.webp" width="800" height="450" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:6px" alt="Bridge Solution, a thematic illustration for the Robert Montgomery transplant story."></a>'
+          listing = listing[:hit.end(1)] + thumbnail + listing[hit.end(1):]
+          news.write_text(listing, encoding='utf-8')
+          for path in sorted(source.parent.glob('bhoc-transplant-bridge-solution*')):
+              print(path.as_posix(), path.stat().st_size, hashlib.sha256(path.read_bytes()).hexdigest())
+          print('Validated complete HTML, image sizes, ALT, Open Graph, Twitter card and NewsArticle image metadata.')
+      - name: Commit approved illustration and page integration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/news/bhoc-transplant-bridge-solution* news/robert-montgomery-transplant-perspective.html news.html
+          git diff --cached --stat
+          git commit -m 'Publish approved Bridge Solution artwork with ALT and image SEO'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "Published commit: $(git rev-parse HEAD)"
+      - name: Check deployed page and public image URLs
+        shell: python
+        run: |
+          import hashlib, json, time, urllib.request
+          from pathlib import Path
+          from html.parser import HTMLParser
+          class Tags(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.tags = []
+              def handle_starttag(self, tag, attrs):
+                  self.tags.append((tag, dict(attrs)))
+          url = 'https://bhoctransplant.com/news/robert-montgomery-transplant-perspective.html'
+          last = None
+          for attempt in range(45):
+              try:
+                  req = urllib.request.Request(url + '?image-check=bridge-v1', headers={'User-Agent': 'BHOC-site-verification/1.0', 'Cache-Control': 'no-cache'})
+                  with urllib.request.urlopen(req, timeout=15) as r:
+                      page = r.read().decode('utf-8'); status = r.status
+                  parser = Tags(); parser.feed(page)
+                  hero = next(a for t,a in parser.tags if t == 'img' and 'bhoc-transplant-bridge-solution.jpg' in a.get('src',''))
+                  assert hero.get('alt','').startswith('Bridge Solution:')
+                  assert 'max-image-preview:large' in page and 'summary_large_image' in page
+                  checks = []
+                  for ext in ['jpg', 'webp', 'avif']:
+                      name = 'bhoc-transplant-bridge-solution.' + ext
+                      image_url = 'https://bhoctransplant.com/assets/news/' + name
+                      with urllib.request.urlopen(image_url, timeout=20) as r:
+                          image = r.read(); content_type = r.headers.get('Content-Type',''); code = r.status
+                      assert hashlib.sha256(image).digest() == hashlib.sha256(Path('assets/news/' + name).read_bytes()).digest()
+                      checks.append({'format':ext,'status':code,'bytes':len(image),'content_type':content_type,'sha256_matches':True})
+                  print(json.dumps({'article_status':status,'alt_verified':True,'social_metadata_verified':True,'assets':checks}, indent=2))
+                  break
+              except Exception as exc:
+                  last = str(exc)
+                  print('Waiting for GitHub Pages deployment:', attempt + 1, last[:200])
+                  time.sleep(8)
+          else:
+              raise RuntimeError('Public deployment could not be verified: ' + str(last))
