@@ -396,3 +396,47 @@ footer a { font-size:14px; }
   .news-page .feed .story { margin-top:8px; }
   .news-page .feed .category { display:inline; margin:0 0 0 10px; }
 }
+
+/* Reading pass: concise page intros and legible scientific detail. */
+.home .lede { max-width:760px; }
+.home .micro { font-size:12px; line-height:1.55; }
+.home .hero-art figcaption { font-size:12px; line-height:1.45; }
+.journey-page .page-hero { padding:42px 0 45px; }
+.journey-page .page-hero .stage-nav { margin-top:24px; }
+.journey-page .section { padding:61px 0; }
+.journey-page .section-head { margin-bottom:25px; }
+.journey-page .phase { min-height:302px; }
+.journey-page .phase h3 { margin-top:17px; }
+.journey-page .phase-panel,.journey-page .phase-panel p { font-size:14px; line-height:1.5; }
+.journey-page .program { gap:24px; }
+.journey-page .program p { font-size:14px; line-height:1.55; }
+.science-page .page-hero { padding:45px 0 52px; }
+.science-page .section { padding:62px 0; }
+.science-page .section-head { margin-bottom:27px; }
+.science-page .system p { font-size:15px; line-height:1.55; }
+.science-page .equation { font-size:14px; }
+.science-page .demand-layout li p { font-size:15px; line-height:1.55; }
+.science-page .demand-layout li span { font-size:11px; }
+.science-page .diagram-note { font-size:12px; }
+.evidence-page .page-hero { padding:43px 0 49px; }
+.evidence-page .section { padding:60px 0; }
+.evidence-page .section-head { margin-bottom:25px; }
+.evidence-page .evidence { min-height:0; padding:22px 24px; }
+.evidence-page .evidence h3 { margin:11px 0 9px; }
+.evidence-page .evidence p { font-size:15px; line-height:1.55; }
+.evidence-page .evidence a { font-size:14px; font-weight:700; text-underline-offset:3px; }
+.evidence-page .claim-boundary { margin-top:24px; padding:22px 26px; }
+.evidence-page .claim-boundary h3 { margin:0 0 7px; }
+.evidence-page .claim-boundary p { font-size:14px; line-height:1.55; margin:0; }
+.partners-page .page-hero { padding:44px 0 50px; }
+.partners-page .section { padding:62px 0; }
+.partners-page .section-head { margin-bottom:26px; }
+.partners-page .scope-grid article { padding:22px 24px; }
+.partners-page .scope-grid h2 { margin:14px 0 9px; }
+.partners-page .partner-ribbon { padding:34px 0; }
+@media(max-width:630px) {
+  .journey-page .page-hero,.science-page .page-hero,.evidence-page .page-hero,.partners-page .page-hero { padding:33px 0 38px; }
+  .journey-page .section,.science-page .section,.evidence-page .section,.partners-page .section { padding:43px 0; }
+  .journey-page .phase { min-height:0; }
+  .science-page .demand-layout li { grid-template-columns:76px 1fr; gap:11px; }
+}
