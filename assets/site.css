@@ -458,7 +458,7 @@ footer a { font-size:14px; }
 .advocate-head { display:grid; grid-template-columns:128px minmax(0,1fr); align-items:start; gap:20px; }
 .advocate-photo { margin:0; }
 .advocate-photo img { display:block; width:128px; height:161px; object-fit:cover; object-position:center 18%; border:1px solid #a6b8d0; }
-.advocate-photo figcaption { margin-top:6px; font-size:10px; line-height:1.35; color:#bdcde4; }
+.advocate-photo figcaption { margin-top:6px; font-size:11px; line-height:1.4; color:#bdcde4; }
 .advocate-photo a { color:inherit; }
 .advocate-label { color:#a4e2e9; font-size:11px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
 .advocate-card h3 { margin:8px 0 9px; font:normal 31px/1.12 Georgia,serif; }
@@ -469,7 +469,7 @@ footer a { font-size:14px; }
 .advocate-links a { color:#a9edf0; font-size:14px; font-weight:700; text-underline-offset:3px; }
 .advocacy-notes { margin-top:19px; padding:17px 20px; border:1px solid #c7cce0; background:#f8f8fc; }
 .advocacy-notes h3 { margin:0 0 9px; color:#37436d; font-size:12px; letter-spacing:.1em; text-transform:uppercase; }
-.advocacy-notes p { margin:7px 0; color:#59627f; font-size:13px; line-height:1.55; }
+.advocacy-notes p { margin:7px 0; color:#59627f; font-size:14px; line-height:1.55; }
 .advocacy-notes p > a:first-child { display:inline-block; min-width:25px; color:#90436f; font-weight:bold; text-decoration:none; }
 .advocacy-notes p > a:last-child:not(:first-child) { color:#334b8a; font-weight:bold; }
 @media(max-width:850px) { .advocacy-layout { grid-template-columns:1fr; } }
