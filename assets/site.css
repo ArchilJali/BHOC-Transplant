@@ -368,3 +368,31 @@ footer a { font-size:14px; }
 /* Keep the transplant news preview balanced with two current stories. */
 .home-news-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 @media(max-width:630px) { .home-news-grid { grid-template-columns:1fr; } }
+
+/* Compact site identity and focused transplant news list. */
+.topline { padding:15px 0; border-bottom:0; }
+.brand { flex-direction:column; align-items:flex-start; gap:3px; }
+.brand-mark { font-size:27px; }
+.brand-mark i { color:#ff6670; }
+.brand-sub { border:0; padding:0; color:#e6eaf6; font:500 10px/1.25 Arial,Helvetica,sans-serif; letter-spacing:.015em; text-transform:none; white-space:nowrap; }
+.news-page .page-hero { padding:27px 0 16px; border-bottom:0; }
+.news-page .page-hero h1 { margin:0; font-size:clamp(38px,4.2vw,54px); }
+.news-page .news-section { padding:0 0 56px; }
+.news-page .feed { max-width:1100px; gap:0; border-top:1px solid #c7cce0; }
+.news-page .feed article { grid-template-columns:130px minmax(0,1fr); gap:28px; padding:25px 0 27px; border:0; border-bottom:1px solid #c7cce0; background:transparent; }
+.news-page .feed .category { margin-top:3px; }
+.news-page .feed h2 { margin:0 0 7px; font-size:clamp(23px,2.5vw,30px); }
+.news-page .feed p { margin:0 0 10px; font-size:14px; }
+.news-page .story-links { display:flex; flex-wrap:wrap; gap:8px 22px; }
+.news-page .story-links a { text-decoration:none; border-bottom:1px solid currentColor; }
+.news-page .story-links a:hover,.news-page .story-links a:focus-visible { color:#a5527d; }
+@media(max-width:630px) {
+  .topline { padding:15px 0 11px; }
+  .brand-mark { font-size:25px; }
+  .brand-sub { font-size:9px; }
+  .news-page .page-hero { padding:22px 0 10px; }
+  .news-page .news-section { padding-bottom:39px; }
+  .news-page .feed article { padding:20px 0 22px; }
+  .news-page .feed .story { margin-top:8px; }
+  .news-page .feed .category { display:inline; margin:0 0 0 10px; }
+}
